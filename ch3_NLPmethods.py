@@ -15,3 +15,7 @@ print("WORD TOKENS = ", word_tokens)
 print('---------------------')
 
 # and then extract sentences
+sentence_tokens = nltk.sent_tokenize(mytext)
+print("Sentence Tokens = ", sentence_tokens)
+print('----------------')
+
