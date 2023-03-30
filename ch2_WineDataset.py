@@ -29,17 +29,24 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
 print("Training features: X", X_train.shape, " Y", Y_train.shape)
 print("Test features: X", X_test.shape, " Y", Y_test.shape)
 
+
+
 #
 t_start = time.time()
 #
-model = LogisticRegression()
-model.fit(X_train,Y_train.values.ravel())
-Y_pred = model.predict(X_train)
-print("Precision for LogisticRegression on Training data: ", precision_score(Y_train, Y_pred, average='micro'))
-#make prediction on testing data and get precision
-Y_pred = model.predict(X_test)
-print("Precision for LogisticRegression on Testing data: ", precision_score(Y_test,Y_pred, average='micro'))
 
+
+
+
+#
+# model = LogisticRegression()
+# model.fit(X_train,Y_train.values.ravel())
+# Y_pred = model.predict(X_train)
+# print("Precision for LogisticRegression on Training data: ", precision_score(Y_train, Y_pred, average='micro'))
+# #make prediction on testing data and get precision
+# Y_pred = model.predict(X_test)
+# print("Precision for LogisticRegression on Testing data: ", precision_score(Y_test,Y_pred, average='micro'))
+#
 
 # #train the KNN model
 # model = KNeighborsClassifier(n_neighbors=20)
@@ -51,10 +58,14 @@ print("Precision for LogisticRegression on Testing data: ", precision_score(Y_te
 # print("Precision for KNN: ", precision_score(Y_test, Y_pred, average='micro'))
 
 
-# model = tree.DecisionTreeClassifier()
-# model.fit(X_train, Y_train)
+model = tree.DecisionTreeClassifier()
+model.fit(X_train, Y_train)
 # #predict for the test
-# Y_pred = model.predict(X_test)
+Y_pred = model.predict(X_train)
+print("Precision for Decision Tree on Training data: ", precision_score(Y_train, Y_pred, average='micro'))
+Y_pred = model.predict(X_test)
+print("Precision for Decision Tree on Testing data: ", precision_score(Y_test, Y_pred, average='micro'))
+
 # #find the precision of how good it is
 # print("Precision for Decision Tree: ", precision_score(Y_test, Y_pred, average='micro'))
 # #export as dot file
@@ -74,14 +85,6 @@ print("Precision for LogisticRegression on Testing data: ", precision_score(Y_te
 # #show the precision value
 # print("Precision for Random Forest: ", precision_score(Y_test, Y_pred, average='micro'))
 #
-
-
-
-
-
-
-
-
 
 t_end = time.time()
 
