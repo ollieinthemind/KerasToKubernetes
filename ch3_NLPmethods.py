@@ -57,3 +57,30 @@ print('-------------------')
 print("CLEANED LEMMATIZED TOKENS = ", clean_lemma_tokens)
 print('-------------------')
 
+#get frequency distribution of words
+
+freq_lemma = nltk.FreqDist(clean_lemma_tokens)
+freq_stem = nltk.FreqDist(clean_stem_tokens)
+
+#import plotting library
+import matplotlib.pyplot as plt
+
+chart_fontsize = 10
+
+#plot the frequency chart
+plt.figure(figsize=(10,5))
+plt.tick_params(labelsize=chart_fontsize)
+plt.title('Cleaned and Stemmed Words', fontsize=chart_fontsize)
+plt.xlabel('Word Tokens', fontsize=chart_fontsize)
+plt.ylabel('Frequency (Counts)', fontsize=chart_fontsize)
+freq_stem.plot(20,cumulative=False)
+plt.show()
+
+# plot the frequency chart
+plt.figure(figsize=(20,10))
+plt.tick_params(labelsize=chart_fontsize)
+plt.title('Cleaned and Lemmatized Words', fontsize=chart_fontsize)
+plt.xlabel('Word Tokens', fontsize=chart_fontsize)
+plt.ylabel('Frequency (Counts)', fontsize=chart_fontsize)
+freq_lemma.plot(20, cumulative=False)
+plt.show()
