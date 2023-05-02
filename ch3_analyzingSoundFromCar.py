@@ -28,3 +28,42 @@ plt.xlabel('Time in milliseconds')
 plt.ylabel('Amplitude')
 plt.plot(timeArray, sound_data, color='b')
 plt.show()
+
+
+
+# number of points for fft
+n = len(s1)
+# take the Fourier transform
+p = np.fft.fft(s1)
+
+# only half the points will give us the frequency bins
+nUniquePts = int(np.ceil((n+1)/2.0))
+p = p[0:nUniquePts]
+p=abs(p)
+
+# create the array of freqneyc points
+
+freqArray = np.arange(0,float(nUniquePts), 1.0) * float(sampling_freq) / n;
+
+#convert the frequency from hertz to engine RPM
+MAX_RPM = 20000
+NUM_POINTS = 20
+
+#remove points above max RPM
+maxhz = MAX_RPM / 60
+p[freqArray > maxhz] = 0
+
+# plot the frequency domain plot
+plt.figure(figsize=(20,10))
+plt.rcParams.update({'font.size': 25})
+plt.title('Plot of sound waves in frequency domain')
+plt.plot(freqArray*60, p, color='r')
+plt.xlabel('Engine RPM')
+plt.ylabel('Signal Power (dB)')
+plt.xlim([0,MAX_RPM])
+plt.xticks(np.arange(0, MAX_RPM, MAX_RPM/NUM_POINTS),
+size='small',rotation=40)
+plt.grid()
+plt.show()
+
+
