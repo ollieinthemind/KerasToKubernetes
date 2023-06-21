@@ -3,7 +3,7 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 
 # Read a csv file and show the records
-features = pd.read_csv('data/house.price.csv')
+features = pd.read_csv('../data/house.price.csv')
 features.head(10)
 
 # We will use the K-Means algorithm

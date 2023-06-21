@@ -9,7 +9,7 @@ import numpy as np
 # import matplotlib charting library
 import matplotlib.pyplot as plt
 # Load a JPG image as an array
-my_image = cv2.imread('data/monalisa.jpg')
+my_image = cv2.imread('../data/monalisa.jpg')
 # convert the image from BGR to RGB color space
 my_image = cv2.cvtColor(my_image, cv2.COLOR_BGR2RGB)
 # Show size of the array
@@ -25,7 +25,7 @@ print("Resized image array shape: ", my_image.shape)
 # convert the image from RGB to BGR color space
 my_image = cv2.cvtColor(my_image, cv2.COLOR_RGB2BGR)
 # Save the new image
-cv2.imwrite('data/new_monalisa.jpg', my_image)
+cv2.imwrite('../data/new_monalisa.jpg', my_image)
 # convert the image to greyscale
 my_grey = cv2.cvtColor(my_image, cv2.COLOR_RGB2GRAY)
 print('Image converted to grayscale.')
@@ -33,7 +33,7 @@ print('Image converted to grayscale.')
 # plt.show()
 
 
-my_image = cv2.imread('data/new_monalisa.jpg')
+my_image = cv2.imread('../data/new_monalisa.jpg')
 my_image = cv2.cvtColor(my_image, cv2.COLOR_BGR2RGB)
 
 # my_image[10:100,10:100,:] = 0

@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 # Read a csv file and show the records
-features = pd.read_csv('data/winequality-red.csv',sep=';')
+features = pd.read_csv('../data/winequality-red.csv', sep=';')
 features.describe()
 
 #separate the Xs and Ys

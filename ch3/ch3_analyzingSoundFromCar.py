@@ -4,7 +4,7 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-AUDIO_FILE = "data\sound_sample_car_engine.wav"
+AUDIO_FILE = "../data/sound_sample_car_engine.wav"
 
 sampling_freq, sound_data = wavfile.read(AUDIO_FILE)
 
